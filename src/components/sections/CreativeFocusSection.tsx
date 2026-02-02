@@ -58,8 +58,8 @@ export const CreativeFocusSection = () => {
       <Marquee items={creativeFocusMarquee} variant="primary" speed="slow" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left - Title with Parallax */}
           <motion.div
             style={{ y: titleY }}

@@ -35,7 +35,7 @@ export const FeaturedProjectsIntro = () => {
       <Marquee items={statsMarquee} speed="normal" variant="dark" />
 
       {/* Featured Projects Header */}
-      <div className="container mx-auto px-6 py-12 md:py-20 lg:py-32 flex-1 flex flex-col justify-center">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20 lg:py-32 flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Left Content */}
           <motion.div

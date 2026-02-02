@@ -52,7 +52,7 @@ export const HeroSection = () => {
   }
 
   return (
-    <div id="hero" className="lg:sticky lg:top-20 z-[10] bg-background p-[5px]">
+    <div id="hero" className="lg:sticky lg:top-20 z-[10] bg-background p-2 sm:p-[5px]">
       <motion.section
         ref={containerRef}
         className="relative overflow-hidden border border-border rounded-3xl min-h-[calc(100vh-10px)]"
@@ -86,7 +86,7 @@ export const HeroSection = () => {
         {/* Content */}
         <motion.div
           style={{ opacity }}
-          className="relative z-10 container mx-auto px-6 min-h-[calc(100vh-10px)] flex flex-col justify-center pt-20"
+          className="relative z-10 container mx-auto px-4 sm:px-6 min-h-[calc(100vh-10px)] flex flex-col justify-center pt-24 sm:pt-20 pb-20 sm:pb-0"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}

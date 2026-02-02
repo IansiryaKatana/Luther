@@ -48,8 +48,8 @@ const AboutPage = () => {
   return (
     <Layout>
       {/* Hero - 90vh */}
-      <section className="min-h-[75vh] bg-background flex items-center pt-20">
-        <div className="container mx-auto px-6">
+      <section className="min-h-[75vh] bg-background flex items-center pt-24 sm:pt-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const AboutPage = () => {
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-primary text-sm font-medium">About Us</span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-4xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground max-w-4xl">
               We're a creative marketing agency based in Dubai
             </h1>
             <p className="text-muted-foreground mt-6 text-xl max-w-2xl">
@@ -74,8 +74,8 @@ const AboutPage = () => {
       <Marquee items={aboutMarquee} />
 
       {/* Values - 75vh */}
-      <section className="min-h-[75vh] bg-light-bg flex flex-col justify-center py-16 md:py-24">
-        <div className="container mx-auto px-6">
+      <section className="min-h-[75vh] bg-light-bg flex flex-col justify-center py-12 sm:py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const AboutPage = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               const words = value.description.split(" ");

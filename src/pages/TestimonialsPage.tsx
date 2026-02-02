@@ -4,7 +4,9 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 const TestimonialsPage = () => {
   return (
     <Layout>
-      <TestimonialsSection limit={undefined} sticky={false} />
+      <div className="pt-20 sm:pt-24">
+        <TestimonialsSection limit={undefined} sticky={false} />
+      </div>
     </Layout>
   );
 };

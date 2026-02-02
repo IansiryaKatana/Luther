@@ -23,7 +23,7 @@ const footerLinks = {
 export const Footer = () => {
   return (
     <footer className="bg-background">
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <motion.div
@@ -96,6 +96,16 @@ export const Footer = () => {
                   Hello@Luther.ae
                 </a>
               </li>
+              <li>
+                <a href="tel:+97142524543" className="text-muted-foreground hover:text-foreground transition-colors">
+                  (04) 252 4543
+                </a>
+              </li>
+              <li>
+                <a href="tel:+971585897786" className="text-muted-foreground hover:text-foreground transition-colors">
+                  +971 58 589 7786
+                </a>
+              </li>
               <li className="text-muted-foreground">
                 Dubai, United Arab Emirates
               </li>
@@ -106,7 +116,7 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-border">
-        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Luther International Marketing. All rights reserved.
           </p>

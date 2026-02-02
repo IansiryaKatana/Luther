@@ -80,10 +80,10 @@ export const FAQSection = ({ sticky = true }: FAQSectionProps) => {
   return (
     <motion.section
       id="faq"
-      className={`section-light min-h-screen py-32 ${sticky ? "lg:sticky lg:top-20 z-[17]" : ""}`}
+      className={`section-light min-h-screen py-16 sm:py-24 md:py-32 ${sticky ? "lg:sticky lg:top-20 z-[17]" : ""}`}
       {...enterMotion}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -116,17 +116,17 @@ export const FAQSection = ({ sticky = true }: FAQSectionProps) => {
               >
                 <AccordionItem
                   value={faq.id}
-                  className="bg-white rounded-2xl px-8 border-0 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="bg-white rounded-2xl px-4 sm:px-6 md:px-8 border-0 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-6 text-background">
-                    <span className="text-lg font-semibold pr-4 flex-1">
+                  <AccordionTrigger className="text-left hover:no-underline py-4 sm:py-6 text-background">
+                    <span className="text-base sm:text-lg font-semibold pr-4 flex-1 min-w-0">
                       <span className="text-muted-foreground mr-3">
                         0{index + 1}/
                       </span>
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground pb-4 sm:pb-6 text-sm sm:text-base leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

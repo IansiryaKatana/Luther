@@ -69,7 +69,7 @@ const transformTestimonial = (dbTestimonial: DBTestimonial): Testimonial => ({
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="bg-card rounded-3xl p-8 hover:bg-dark-elevated transition-colors duration-300 h-full">
+    <div className="bg-card rounded-3xl p-4 sm:p-6 md:p-8 hover:bg-dark-elevated transition-colors duration-300 h-full min-w-0">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -142,7 +142,7 @@ export const TestimonialsSection = ({ limit = 4, sticky = true }: TestimonialsSe
       className={`bg-background min-h-0 py-12 md:py-24 lg:py-32 overflow-hidden ${sticky ? "lg:min-h-screen lg:sticky lg:top-20 z-[16]" : ""}`}
       {...enterMotion}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

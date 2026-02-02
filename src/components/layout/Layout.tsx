@@ -20,7 +20,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <NoiseTexture />
         <ScrollProgress />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 min-w-0 overflow-x-hidden">{children}</main>
         {!hideFooter && <ContactSection />}
       </div>
     </PageTransition>

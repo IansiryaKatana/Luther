@@ -67,16 +67,16 @@ const ContactPage = () => {
   return (
     <Layout>
       {/* Contact Form & Info */}
-      <section className="min-h-screen pt-32 pb-24">
-        <div className="container mx-auto px-6">
-          <div className="p-10 md:p-14 lg:p-16">
+      <section className="min-h-screen pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="p-4 sm:p-6 md:p-10 lg:p-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground">
                 Contact Us
               </h1>
               <p className="text-muted-foreground mt-6 text-lg">
@@ -84,7 +84,7 @@ const ContactPage = () => {
               </p>
             </motion.div>
 
-            <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="mt-8 sm:mt-12 md:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* Form */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -195,12 +195,20 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="text-foreground font-semibold mb-1">Phone</h3>
-                      <a
-                        href="tel:+971501234567"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        +971 50 123 4567
-                      </a>
+                      <div className="space-y-1">
+                        <a
+                          href="tel:+97142524543"
+                          className="block text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          (04) 252 4543 <span className="text-xs text-muted-foreground/80">Landline</span>
+                        </a>
+                        <a
+                          href="tel:+971585897786"
+                          className="block text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          +971 58 589 7786
+                        </a>
+                      </div>
                     </div>
                   </div>
 

@@ -19,11 +19,13 @@ interface NavItemProps {
   to: string;
   icon: React.ReactNode;
   label: string;
+  onNavigate?: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ to, icon, label }) => {
+const NavItem: React.FC<NavItemProps> = ({ to, icon, label, onNavigate }) => {
   return (
     <NavLink
+      onClick={onNavigate}
       to={to}
       end
       className={({ isActive }) =>
@@ -41,37 +43,42 @@ const NavItem: React.FC<NavItemProps> = ({ to, icon, label }) => {
   );
 };
 
-const AdminSidebar: React.FC = () => {
+interface AdminSidebarProps {
+  onNavigate?: () => void;
+}
+
+const AdminSidebar: React.FC<AdminSidebarProps> = ({ onNavigate }) => {
   const { signOut, user } = useAuth();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
     await signOut();
     navigate('/auth');
+    onNavigate?.();
   };
 
   return (
-    <aside className="w-64 min-h-screen bg-card border-r border-border flex flex-col">
+    <aside className="w-full md:w-64 min-h-screen md:min-h-0 bg-card md:border-r border-border flex flex-col">
       <div className="p-6 border-b border-border">
         <h1 className="text-xl font-bold">Admin Dashboard</h1>
         <p className="text-xs text-muted-foreground mt-1 truncate">{user?.email}</p>
       </div>
       
       <nav className="flex-1 p-4 space-y-1">
-        <NavItem to="/admin" icon={<LayoutDashboard className="h-4 w-4" />} label="Overview" />
-        <NavItem to="/admin/hero" icon={<Image className="h-4 w-4" />} label="Hero Section" />
-        <NavItem to="/admin/projects" icon={<FolderKanban className="h-4 w-4" />} label="Projects" />
-        <NavItem to="/admin/how-we-work" icon={<Cog className="h-4 w-4" />} label="How We Work" />
-        <NavItem to="/admin/testimonials" icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
-        <NavItem to="/admin/faqs" icon={<HelpCircle className="h-4 w-4" />} label="FAQs" />
-        <NavItem to="/admin/messages" icon={<Mail className="h-4 w-4" />} label="Messages" />
+        <NavItem to="/admin" icon={<LayoutDashboard className="h-4 w-4" />} label="Overview" onNavigate={onNavigate} />
+        <NavItem to="/admin/hero" icon={<Image className="h-4 w-4" />} label="Hero Section" onNavigate={onNavigate} />
+        <NavItem to="/admin/projects" icon={<FolderKanban className="h-4 w-4" />} label="Projects" onNavigate={onNavigate} />
+        <NavItem to="/admin/how-we-work" icon={<Cog className="h-4 w-4" />} label="How We Work" onNavigate={onNavigate} />
+        <NavItem to="/admin/testimonials" icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" onNavigate={onNavigate} />
+        <NavItem to="/admin/faqs" icon={<HelpCircle className="h-4 w-4" />} label="FAQs" onNavigate={onNavigate} />
+        <NavItem to="/admin/messages" icon={<Mail className="h-4 w-4" />} label="Messages" onNavigate={onNavigate} />
       </nav>
       
       <div className="p-4 border-t border-border space-y-2">
         <Button
           variant="ghost"
           className="w-full justify-start gap-3"
-          onClick={() => navigate('/')}
+          onClick={() => { navigate('/'); onNavigate?.(); }}
         >
           <ChevronLeft className="h-4 w-4" />
           Back to Site

@@ -58,31 +58,33 @@ const ProjectDetailPage = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-6">
+      <section className="bg-background pt-24 sm:pt-28 pb-12 sm:pb-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-              <Link to="/" className="hover:text-foreground transition-colors">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground mb-6 sm:mb-8">
+              <Link to="/" className="hover:text-foreground transition-colors shrink-0">
                 Home
               </Link>
-              <span>/</span>
+              <span className="shrink-0">/</span>
               <Link
                 to="/projects"
-                className="hover:text-foreground transition-colors"
+                className="hover:text-foreground transition-colors shrink-0"
               >
                 Projects
               </Link>
-              <span>/</span>
-              <span className="text-foreground">{project.title}</span>
+              <span className="shrink-0">/</span>
+              <span className="text-foreground truncate min-w-0" title={project.title}>
+                {project.title}
+              </span>
             </div>
 
             {/* Meta */}
-            <div className="flex items-center gap-6 text-primary text-sm mb-6">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-primary text-sm mb-6">
               {displayDate && (
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
@@ -103,7 +105,7 @@ const ProjectDetailPage = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 break-words">
               {project.title}
             </h1>
             {project.description && (
@@ -117,8 +119,8 @@ const ProjectDetailPage = () => {
 
       {/* Featured Image */}
       {featuredImage && (
-        <section className="bg-background pb-16">
-          <div className="container mx-auto px-6">
+        <section className="bg-background pb-8 sm:pb-16">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -136,9 +138,9 @@ const ProjectDetailPage = () => {
       )}
 
       {/* Project Content */}
-      <section className="bg-background py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+      <section className="bg-background py-8 sm:py-12 md:py-16">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Main Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -149,7 +151,7 @@ const ProjectDetailPage = () => {
             >
               {project.content ? (
                 <div
-                  className="prose prose-invert prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+                  className="prose prose-invert prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:max-w-full prose-img:w-full"
                   dangerouslySetInnerHTML={{ __html: project.content }}
                 />
               ) : (
@@ -216,8 +218,8 @@ const ProjectDetailPage = () => {
       </section>
 
       {/* Navigation */}
-      <section className="bg-background py-16 border-t border-border">
-        <div className="container mx-auto px-6">
+      <section className="bg-background py-8 sm:py-12 md:py-16 border-t border-border pb-[env(safe-area-inset-bottom)]">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {prevProject ? (
               <Link to={`/projects/${prevProject.id}`} className="order-2 sm:order-1">

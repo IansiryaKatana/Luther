@@ -32,15 +32,15 @@ const ProjectsPage = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-background pt-24 pb-12 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-6">
+      <section className="bg-background pt-24 sm:pt-28 pb-8 sm:pb-12 md:pt-32 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground">
               Featured Projects
             </h1>
             <p className="text-muted-foreground mt-6 text-lg max-w-2xl mx-auto">
@@ -52,8 +52,8 @@ const ProjectsPage = () => {
       </section>
 
       {/* Projects Grid / Mobile Carousel - content-sized on mobile, no forced 100vh */}
-      <section className="bg-background py-12 md:py-24">
-        <div className="container mx-auto px-6">
+      <section className="bg-background py-8 sm:py-12 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
           {isLoading ? (
             <div className="flex justify-center py-12">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />

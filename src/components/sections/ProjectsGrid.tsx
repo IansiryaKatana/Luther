@@ -101,11 +101,11 @@ const ProjectCard = ({ project, index, size = "large" }: ProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="h-full p-8 md:p-10 bg-background overflow-hidden"
+      className="h-full p-4 sm:p-6 md:p-8 lg:p-10 bg-background overflow-hidden"
     >
       <Link to={`/projects/${project.id}`} className="block group h-full flex flex-col min-h-0">
         <div className="mb-5 shrink-0">
-          <div className="flex items-center gap-4 text-primary text-sm mb-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-primary text-sm mb-3">
             <span className="font-medium">{project.date}</span>
             <span className="text-muted-foreground">{project.time}</span>
             {project.category && (
@@ -224,10 +224,10 @@ export const ProjectsGrid = () => {
       {/* Mobile: Single carousel (all projects) */}
       <motion.section
         id="projects-mobile"
-        className="md:hidden min-h-0 bg-background flex flex-col py-8 md:py-0"
+        className="md:hidden min-h-0 bg-background flex flex-col py-6 sm:py-8 md:py-0 overflow-hidden"
         {...enterMotion}
       >
-        <div className="w-full">
+        <div className="w-full px-2 sm:px-4">
           <MobileCarousel projectsList={allProjectsForCarousel} rowIndex={0} />
         </div>
       </motion.section>

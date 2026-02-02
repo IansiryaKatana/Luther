@@ -50,7 +50,7 @@ export const SocialMediaSection = () => {
       className="lg:sticky lg:top-20 z-[18] bg-light-bg min-h-screen flex items-center py-0"
       {...enterMotion}
     >
-      <div className="container mx-auto px-6 py-24">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -16,9 +16,9 @@ export const ContactSection = () => {
 
   return (
     <footer ref={containerRef} className="bg-background">
-      <div className="py-32">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="py-16 sm:py-20 md:py-24 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content with Parallax */}
             <motion.div style={{ y: leftY }}>
               <motion.div
@@ -66,9 +66,16 @@ export const ContactSection = () => {
                 },
                 {
                   icon: Phone,
+                  title: "Landline",
+                  value: "(04) 252 4543",
+                  href: "tel:+97142524543",
+                  isLink: true,
+                },
+                {
+                  icon: Phone,
                   title: "Phone",
-                  value: "+971 50 123 4567",
-                  href: "tel:+971501234567",
+                  value: "+971 58 589 7786",
+                  href: "tel:+971585897786",
                   isLink: true,
                 },
                 {
@@ -84,7 +91,7 @@ export const ContactSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-start gap-5 group"
+                  className="flex items-start gap-4 sm:gap-5 group min-w-0"
                 >
                   <div className="p-4 bg-card rounded-2xl group-hover:bg-primary/10 transition-colors duration-300">
                     <item.icon className="w-6 h-6 text-primary" />
@@ -116,8 +123,8 @@ export const ContactSection = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="border-t border-border">
-        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="border-t border-border pb-[env(safe-area-inset-bottom)]">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Luther International Marketing. All rights reserved.
           </p>

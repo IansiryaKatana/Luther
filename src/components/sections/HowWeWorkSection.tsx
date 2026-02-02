@@ -153,7 +153,7 @@ export const HowWeWorkSection = () => {
       {/* Services Marquee */}
       <Marquee items={servicesMarquee} speed="normal" variant="dark" />
 
-      <div className="container mx-auto px-6 py-32">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -179,9 +179,9 @@ export const HowWeWorkSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="py-14 border-b border-border group"
+              className="py-8 sm:py-10 md:py-14 border-b border-border group"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
                 {/* Phase Badge & Number */}
                 <div className="lg:col-span-3 flex items-center gap-6">
                   <span className="px-5 py-2.5 rounded-full border border-border text-sm font-semibold group-hover:border-primary group-hover:text-primary transition-colors duration-300">
