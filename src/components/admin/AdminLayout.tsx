@@ -45,7 +45,7 @@ const AdminLayout: React.FC = () => {
         <div className="w-10" />
       </div>
 
-      <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8 pt-14 md:pt-8 overflow-auto">
+      <main className="flex-1 min-w-0 md:pl-64 p-4 sm:p-6 md:p-8 pt-14 md:pt-8 overflow-auto">
         <Outlet />
       </main>
     </div>

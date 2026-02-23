@@ -269,6 +269,30 @@ export type Database = {
         }
         Relationships: []
       }
+      project_gallery: {
+        Row: {
+          id: string
+          project_id: string
+          image_url: string
+          display_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          project_id: string
+          image_url: string
+          display_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          project_id?: string
+          image_url?: string
+          display_order?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
       services_marquee: {
         Row: {
           created_at: string

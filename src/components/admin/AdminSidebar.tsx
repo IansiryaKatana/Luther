@@ -58,7 +58,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ onNavigate }) => {
   };
 
   return (
-    <aside className="w-full md:w-64 min-h-screen md:min-h-0 bg-card md:border-r border-border flex flex-col">
+    <aside className="w-full md:w-64 h-screen md:fixed md:inset-y-0 md:left-0 md:z-30 bg-card md:border-r border-border flex flex-col">
       <div className="p-6 border-b border-border">
         <h1 className="text-xl font-bold">Admin Dashboard</h1>
         <p className="text-xs text-muted-foreground mt-1 truncate">{user?.email}</p>

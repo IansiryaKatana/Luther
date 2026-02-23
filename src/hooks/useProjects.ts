@@ -126,3 +126,65 @@ export const useDeleteProject = () => {
     },
   });
 };
+
+export const useDuplicateProject = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (sourceId: string) => {
+      const { data: source, error: fetchError } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('id', sourceId)
+        .single();
+
+      if (fetchError || !source) throw fetchError || new Error('Project not found');
+      const project = source as Project;
+
+      const { data: newProject, error: insertError } = await supabase
+        .from('projects')
+        .insert({
+          title: `Copy of ${project.title}`,
+          description: project.description,
+          category: project.category,
+          image_url: project.image_url,
+          logo_url: project.logo_url,
+          featured_image_url: project.featured_image_url,
+          content: project.content,
+          date: project.date,
+          duration: project.duration,
+          featured: false,
+          display_order: (project.display_order ?? 0) + 1,
+        })
+        .select()
+        .single();
+
+      if (insertError || !newProject) throw insertError || new Error('Failed to create duplicate');
+
+      const { data: gallery } = await supabase
+        .from('project_gallery')
+        .select('image_url, display_order')
+        .eq('project_id', sourceId)
+        .order('display_order', { ascending: true });
+
+      if (gallery?.length) {
+        await supabase.from('project_gallery').insert(
+          gallery.map((row, i) => ({
+            project_id: (newProject as Project).id,
+            image_url: row.image_url,
+            display_order: row.display_order ?? i,
+          }))
+        );
+      }
+
+      return newProject as Project;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['projects'] });
+      toast.success('Project duplicated');
+    },
+    onError: (error: Error) => {
+      toast.error(error.message);
+    },
+  });
+};
